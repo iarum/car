@@ -5,9 +5,9 @@ let gameStarted = false;
 let car = $('.car');
 let score = 0;
 
-let bgAudio = new Audio('../assets/sounds/bg.mp3');
-let coin = new Audio('../assets/sounds/coin.mp3');
-let death = new Audio('../assets/sounds/death.mp3');
+const bgAudio = new Audio('assets/sounds/bg.mp3');
+const coin = new Audio('assets/sounds/coin.mp3');
+const death = new Audio('assets/sounds/death.mp3');
 
 function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
