@@ -9,15 +9,17 @@ let bgAudio = new Audio('../assets/sounds/bg.mp3');
 let coin = new Audio('../assets/sounds/coin.mp3');
 let death = new Audio('../assets/sounds/death.mp3');
 
+let mobile = false;
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    mobile = true;
+}
+
 function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
 }
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    $(document).on('click', function () {
-        $('.car').detach();
-    });
-} else {
+if (!mobile) {
     $(document).on('keypress', function (e) {
         let key = e.which;
 
@@ -42,6 +44,12 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
             }
         }
     });
+} else {
+    $(document).on('click', function () {
+        $('.start').detach();
+        gameStarted = true;
+        bgAudio.play();
+    })
 }
 
 // GAME STARTED 👇
