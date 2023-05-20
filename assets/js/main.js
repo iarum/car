@@ -4,7 +4,6 @@ let gameStarted = false;
 
 let car = $('.car');
 let score = 0;
-let alreadyScored = false;
 
 function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
@@ -85,9 +84,6 @@ setInterval(function () {
         let position = ['7px', '94px']
         let currentPosition = position[Math.floor(Math.random() * position.length)];
         $('.coins').append(`<img class="coin" src="assets/img/star.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
-        setTimeout(function () {
-            $('.coins').find('.coin:first').detach();
-        }, 8000)
     }
 }, 3500)
 
@@ -111,17 +107,12 @@ setInterval(function () {
             if (
                 (car.offset().left - $(this).offset().left) < 50 &&
                 (car.offset().left - $(this).offset().left) > - 130 &&
-                (car.offset().top - $(this).offset().top) < 30 &&
+                (car.offset().top - $(this).offset().top) < 10 &&
                 (car.offset().top - $(this).offset().top) > - 70
             ) {
-                if (!alreadyScored) {
-                    score++;
-                    $('.score').find('span').text(score);
-                    alreadyScored = true;
-                    setTimeout(function () {
-                        alreadyScored = false;
-                    }, 1000)
-                }
+                score++;
+                $(this).detach();
+                $('.score').find('span').text(score);
 
             }
         })

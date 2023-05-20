@@ -90,17 +90,17 @@ body {
 }
 
 .ground .tree {
-    width: 100px;
+    width: 130px;
     position: absolute;
-    top: -80px;
+    top: -100px;
     animation: moveToLeft 10s linear infinite;
     transition: 0.5s;
 }
 
 .ground .gras {
-    width: 70px;
+    width: 100px;
     position: absolute;
-    bottom: -10px;
+    bottom: -30px;
     animation: moveToLeft 10s linear infinite;
     transition: 0.5s;
     z-index: 10;
