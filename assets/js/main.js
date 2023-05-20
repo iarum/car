@@ -9,48 +9,34 @@ let bgAudio = new Audio('../assets/sounds/bg.mp3');
 let coin = new Audio('../assets/sounds/coin.mp3');
 let death = new Audio('../assets/sounds/death.mp3');
 
-let mobile = false;
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    mobile = true;
-}
-
 function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
 }
 
-if (!mobile) {
-    $(document).on('keypress', function (e) {
-        let key = e.which;
+$(document).on('keypress', function (e) {
+    let key = e.which;
 
-        if (key == 13) {
-            $('.start').detach();
-            gameStarted = true;
-            bgAudio.play();
-        }
-        // a 97, d 100, w 119, s 115
-        if (gameStarted) {
-            if (key == 119) {
-                car.css('top', "-35%");
-            }
-            if (key == 115) {
-                car.css('top', "20%");
-            }
-            if (key == 100) {
-                car.css('left', car.offset().left + 40 + 'px');
-            }
-            if (key == 97) {
-                car.css('left', car.offset().left - 40 + 'px');
-            }
-        }
-    });
-} else {
-    $(document).on('click', function () {
+    if (key == 13) {
         $('.start').detach();
         gameStarted = true;
         bgAudio.play();
-    })
-}
+    }
+    // a 97, d 100, w 119, s 115
+    if (gameStarted) {
+        if (key == 119) {
+            car.css('top', "-35%");
+        }
+        if (key == 115) {
+            car.css('top', "20%");
+        }
+        if (key == 100) {
+            car.css('left', car.offset().left + 40 + 'px');
+        }
+        if (key == 97) {
+            car.css('left', car.offset().left - 40 + 'px');
+        }
+    }
+});
 
 // GAME STARTED 👇
 
