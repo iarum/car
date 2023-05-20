@@ -13,30 +13,36 @@ function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
 }
 
-$(document).on('keypress', function (e) {
-    let key = e.which;
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    $(document).on('click', function () {
+        $('.car').detach();
+    });
+} else {
+    $(document).on('keypress', function (e) {
+        let key = e.which;
 
-    if (key == 13) {
-        $('.start').detach();
-        gameStarted = true;
-        bgAudio.play();
-    }
-    // a 97, d 100, w 119, s 115
-    if (gameStarted) {
-        if (key == 119) {
-            car.css('top', "-35%");
+        if (key == 13) {
+            $('.start').detach();
+            gameStarted = true;
+            bgAudio.play();
         }
-        if (key == 115) {
-            car.css('top', "20%");
+        // a 97, d 100, w 119, s 115
+        if (gameStarted) {
+            if (key == 119) {
+                car.css('top', "-35%");
+            }
+            if (key == 115) {
+                car.css('top', "20%");
+            }
+            if (key == 100) {
+                car.css('left', car.offset().left + 40 + 'px');
+            }
+            if (key == 97) {
+                car.css('left', car.offset().left - 40 + 'px');
+            }
         }
-        if (key == 100) {
-            car.css('left', car.offset().left + 40 + 'px');
-        }
-        if (key == 97) {
-            car.css('left', car.offset().left - 40 + 'px');
-        }
-    }
-});
+    });
+}
 
 // GAME STARTED 👇
 
