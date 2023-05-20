@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='assets/css/main.css'>
+</head>
+
+<body>
+
+    <div class="start">
+        <h1>Press Enter to start <i class="ms-2 fa-solid fa-flag-checkered"></i></h1>
+    </div>
+
+    <div class="bg">
+        <div class="sky">
+            <div class="score">
+                <h1>Score: <span></span></h1>
+            </div>
+            <img src="assets/img/sunny.png" class="sun">
+            <div class="clouds"></div>
+        </div>
+        <div class="ground">
+            <div class="trees"></div>
+            <div class="grass"></div>
+            <div class="road">
+                <img src="assets/img/alive-car.gif" class="car">
+                <div class="lines"></div>
+                <div class="worms"></div>
+                <div class="coins"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="end" style="display: none;">
+        <h1>Score: <span>0</span></h1>
+        <button class="mt-2 btn btn-outline-success reload">Play again</button>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js'></script>
+    <script src='assets/js/main.js'></script>
+</body>
+
+</html>

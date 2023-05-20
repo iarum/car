@@ -1,0 +1,167 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    user-select: none;
+}
+
+.start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 213;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.end {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 213;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    font-size: 30px;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+}
+
+.sky {
+    background-color: rgba(100, 149, 237, 0.5);
+    height: 75vh;
+}
+
+.score {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    z-index: 5;
+}
+
+.sky i {
+    font-size: 100px;
+    color: rgba(245, 245, 245, 0.8);
+    position: absolute;
+    transition: 0.5s;
+}
+
+.sky .cloud {
+    animation: moveToLeft 18s linear infinite;
+    transition: 0.5s;
+}
+
+.sky .sun {
+    width: 170px;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    animation: rotating 20s linear infinite;
+}
+
+.ground {
+    background-color: rgba(108, 200, 108, 0.5);
+    height: 25vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ground i {
+    position: absolute;
+    font-size: 70px;
+    color: rgb(78, 123, 78);
+}
+
+.ground .tree {
+    width: 100px;
+    position: absolute;
+    top: -80px;
+    animation: moveToLeft 10s linear infinite;
+    transition: 0.5s;
+}
+
+.ground .gras {
+    width: 70px;
+    position: absolute;
+    bottom: -10px;
+    animation: moveToLeft 10s linear infinite;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.ground .road {
+    position: relative;
+    background-color: rgb(62, 62, 62);
+    height: 150px;
+    width: 100%;
+}
+
+.line {
+    position: absolute;
+    background-color: rgba(245, 245, 245, 0.8);
+    top: 50%;
+    width: 50px;
+    height: 10px;
+    animation: moveToLeft 10s linear infinite;
+}
+
+.car-mother {
+    position: relative;
+}
+
+.ground .car {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    z-index: 4;
+    width: 150px;
+    transition: 0.2s;
+    transform: scaleX(-1);
+}
+
+.worm {
+    position: absolute;
+    width: 70px;
+    animation: moveToLeft 10s linear infinite;
+    z-index: 3;
+}
+
+.coin {
+    position: absolute;
+    width: 50px;
+    animation: moveToLeft 10s linear infinite;
+    z-index: 3;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveToLeft {
+    to {
+        left: -1000px;
+    }
+}
