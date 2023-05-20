@@ -5,6 +5,10 @@ let gameStarted = false;
 let car = $('.car');
 let score = 0;
 
+let bgAudio = new Audio('../assets/sounds/bg.mp3');
+let coin = new Audio('../assets/sounds/coin.mp3');
+let death = new Audio('../assets/sounds/death.mp3');
+
 function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
 }
@@ -15,6 +19,7 @@ $(document).on('keypress', function (e) {
     if (key == 13) {
         $('.start').detach();
         gameStarted = true;
+        bgAudio.play();
     }
     // a 97, d 100, w 119, s 115
     if (gameStarted) {
@@ -98,6 +103,7 @@ setInterval(function () {
                 (car.offset().top - $(this).offset().top) > - 70
             ) {
                 $('.car').detach();
+                death.play();
                 $('.end').find('span').text(score);
                 $('.end').show();
             }
@@ -111,6 +117,7 @@ setInterval(function () {
                 (car.offset().top - $(this).offset().top) > - 70
             ) {
                 score++;
+                coin.play();
                 $(this).detach();
                 $('.score').find('span').text(score);
 
