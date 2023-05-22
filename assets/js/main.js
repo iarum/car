@@ -69,11 +69,39 @@ setInterval(function () {
 }, 5000)
 
 setInterval(function () {
+    $('.trees2').append('<img src="assets/img/tree2.png" class="tree" style="left:' + width + 'px; "/>');
+    setTimeout(function () {
+        $('.trees2').find('.tree:first').detach();
+    }, timeout)
+}, 6100)
+
+setInterval(function () {
+    $('.trees3').append('<img src="assets/img/tree3.png" class="tree" style="left:' + width + 'px; "/>');
+    setTimeout(function () {
+        $('.trees3').find('.tree:first').detach();
+    }, timeout)
+}, 7900)
+
+setInterval(function () {
     $('.grass').append('<img src="assets/img/grass.png" class="gras" style="left:' + width + 'px; "/>');
     setTimeout(function () {
         $('.grass').find('.gras:first').detach();
     }, timeout)
 }, 4500)
+
+setInterval(function () {
+    $('.spring').append('<img src="assets/img/spring.png" class="gras" style="left:' + width + 'px; "/>');
+    setTimeout(function () {
+        $('.spring').find('.gras:first').detach();
+    }, timeout)
+}, 6400)
+
+setInterval(function () {
+    $('.grass2').append('<img src="assets/img/grass2.png" class="gras" style="left:' + width + 'px; "/>');
+    setTimeout(function () {
+        $('.grass2').find('.gras:first').detach();
+    }, timeout)
+}, 7800)
 
 //////////////////////////////////////////////////
 
