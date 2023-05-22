@@ -38,10 +38,10 @@ $(document).on('keypress', function (e) {
             car.css('top', "20%");
         }
         if (key == 100) {
-            car.css('left', car.offset().left + 50 + 'px');
+            car.css('left', car.offset().left + 60 + 'px');
         }
         if (key == 97) {
-            car.css('left', car.offset().left - 40 + 'px');
+            car.css('left', car.offset().left - 50 + 'px');
         }
     }
 });
@@ -91,17 +91,6 @@ setInterval(function () {
     }
 }, 2100)
 
-setInterval(function () {
-    if (gameStarted) {
-        let position = ['-30px', '45px']
-        let currentPosition = position[Math.floor(Math.random() * position.length)];
-        $('.worms').append(`<img class="taxi" src="assets/img/taxi.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
-        setTimeout(function () {
-            $('.worms').find('.taxi:first').detach();
-        }, timeout)
-    }
-}, 20000)
-
 // 💲
 setInterval(function () {
     if (gameStarted) {
@@ -118,6 +107,35 @@ setInterval(function () {
         $('.coins').append(`<img class="more-coin" src="assets/img/money.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
     }
 }, 15000)
+
+// Level ups
+
+// 🚕
+setInterval(function () {
+    if (score >= 15) {
+        if (gameStarted) {
+            let position = ['-30px', '45px']
+            let currentPosition = position[Math.floor(Math.random() * position.length)];
+            $('.taxis').append(`<img class="taxi" src="assets/img/taxi.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
+            setTimeout(function () {
+                $('.taxis').find('.taxi:first').detach();
+            }, timeout)
+        }
+    }
+}, 10000)
+
+setInterval(function () {
+    if (score >= 35) {
+        if (gameStarted) {
+            let position = ['-30px', '45px']
+            let currentPosition = position[Math.floor(Math.random() * position.length)];
+            $('.big-taxis').append(`<img class="big-taxi" src="assets/img/big-taxi.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
+            setTimeout(function () {
+                $('.big-taxis').find('.big-taxi:first').detach();
+            }, timeout * 2)
+        }
+    }
+}, 13500)
 
 // Win or die
 setInterval(function () {
@@ -152,6 +170,21 @@ setInterval(function () {
             }
         })
 
+        $('.big-taxi').each(function () {
+            if (
+                (car.offset().left - $(this).offset().left) < 50 &&
+                (car.offset().left - $(this).offset().left) > - 120 &&
+                (car.offset().top - $(this).offset().top) < 0 &&
+                (car.offset().top - $(this).offset().top) > - 70
+            ) {
+                $('.car').detach();
+                death.play();
+                bgAudio.pause();
+                $('.end').find('span').text(score);
+                $('.end').show();
+            }
+        })
+
         $('.coin').each(function () {
             if (
                 (car.offset().left - $(this).offset().left) < 50 &&
@@ -163,7 +196,7 @@ setInterval(function () {
                 coin.play();
                 $(this).detach();
                 $('.score').find('span').text(score);
-
+                levelUp();
             }
         })
 
@@ -178,7 +211,7 @@ setInterval(function () {
                 coin.play();
                 $(this).detach();
                 $('.score').find('span').text(score);
-
+                levelUp();
             }
         })
     }

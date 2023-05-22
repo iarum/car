@@ -63,7 +63,7 @@ body {
 }
 
 .sky {
-    background-color: rgba(100, 149, 237, 0.5);
+    background-image: linear-gradient(rgba(100, 149, 237, 0.5) 70%, rgba(255, 255, 255, 0.8) 100%);
     height: 75vh;
 }
 
@@ -86,7 +86,7 @@ body {
 }
 
 .sky .cloud {
-    animation: moveToLeft calc(var(--speed) * 3) linear infinite;
+    animation: moveToLeft calc(var(--speed) * 3) linear;
     transition: 0.5s;
 }
 
@@ -116,7 +116,7 @@ body {
     width: 130px;
     position: absolute;
     top: -100px;
-    animation: moveToLeft var(--speed) linear infinite;
+    animation: moveToLeft var(--speed) linear;
     transition: 0.5s;
 }
 
@@ -124,7 +124,7 @@ body {
     width: 100px;
     position: absolute;
     bottom: -30px;
-    animation: moveToLeft var(--speed) linear infinite;
+    animation: moveToLeft var(--speed) linear;
     transition: 0.5s;
     z-index: 10;
 }
@@ -142,7 +142,7 @@ body {
     top: 47%;
     width: 50px;
     height: 10px;
-    animation: moveToLeft var(--speed) linear infinite;
+    animation: moveToLeft var(--speed) linear;
 }
 
 .car-mother {
@@ -162,28 +162,36 @@ body {
 .worm {
     position: absolute;
     width: 70px;
-    animation: moveToLeft var(--speed) linear infinite;
+    animation: moveToLeft var(--speed) linear;
     z-index: 3;
 }
 
 .taxi {
     position: absolute;
     width: 120px;
-    animation: moveToLeft calc(var(--speed) * 0.5) linear infinite;
+    animation: moveToLeft calc(var(--speed) * 0.5) linear;
     z-index: 4;
+}
+
+.big-taxi {
+    position: absolute;
+    width: 120px;
+    animation: busLine calc(var(--speed) * 0.75) linear;
+    z-index: 4;
+    transform: scaleX(-1);
 }
 
 .coin {
     position: absolute;
     width: 50px;
-    animation: moveToLeft var(--speed) linear infinite;
+    animation: moveToLeft var(--speed) linear;
     z-index: 3;
 }
 
 .more-coin {
     position: absolute;
     width: 80px;
-    animation: moveToLeft var(--speed) linear infinite;
+    animation: moveToLeft var(--speed) linear;
     z-index: 3;
 }
 
@@ -199,6 +207,32 @@ body {
 
 @keyframes moveToLeft {
     to {
+        left: -1000px;
+    }
+}
+
+@keyframes busLine {
+    10% {
+        top: -30px;
+    }
+
+    30% {
+        top: -30px;
+    }
+
+    35% {
+        top: 45px;
+    }
+
+    60% {
+        top: 45px;
+    }
+
+    65% {
+        top: -30px;
+    }
+
+    100% {
         left: -1000px;
     }
 }
