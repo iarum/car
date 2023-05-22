@@ -171,12 +171,13 @@ body {
     width: 120px;
     animation: moveToLeft calc(var(--speed) * 0.5) linear;
     z-index: 4;
+    transform: scaleX(-1);
 }
 
-.big-taxi {
+.bus {
     position: absolute;
     width: 120px;
-    animation: busLine calc(var(--speed) * 0.75) linear;
+    animation: busLine calc(var(--speed) * 0.6) linear;
     z-index: 4;
     transform: scaleX(-1);
 }
@@ -232,7 +233,12 @@ body {
         top: -30px;
     }
 
+    90% {
+        top: -30px;
+    }
+
     100% {
+        top: 45px;
         left: -1000px;
     }
 }

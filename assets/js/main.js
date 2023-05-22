@@ -14,13 +14,9 @@ function randomNumber(from, to) {
     return Math.floor((Math.random() * to) + from);
 }
 
-function speedUp() {
-    $("body").get(0).style.setProperty("--speed", "5s");
-}
-
-setTimeout(function () {
-
-}, 10000)
+// function speedUp() {
+//     $("body").get(0).style.setProperty("--speed", "5s");
+// }
 
 $(document).on('keypress', function (e) {
     let key = e.which;
@@ -79,6 +75,8 @@ setInterval(function () {
     }, timeout)
 }, 4500)
 
+//////////////////////////////////////////////////
+
 // 🐛
 setInterval(function () {
     if (gameStarted) {
@@ -104,7 +102,7 @@ setInterval(function () {
     if (gameStarted) {
         let position = ['-10px', '60px']
         let currentPosition = position[Math.floor(Math.random() * position.length)];
-        $('.coins').append(`<img class="more-coin" src="assets/img/money.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
+        $('.more-coins').append(`<img class="more-coin" src="assets/img/money.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
     }
 }, 15000)
 
@@ -112,7 +110,7 @@ setInterval(function () {
 
 // 🚕
 setInterval(function () {
-    if (score >= 15) {
+    if (score >= 17) {
         if (gameStarted) {
             let position = ['-30px', '45px']
             let currentPosition = position[Math.floor(Math.random() * position.length)];
@@ -125,13 +123,13 @@ setInterval(function () {
 }, 10000)
 
 setInterval(function () {
-    if (score >= 35) {
+    if (score >= 38) {
         if (gameStarted) {
             let position = ['-30px', '45px']
             let currentPosition = position[Math.floor(Math.random() * position.length)];
-            $('.big-taxis').append(`<img class="big-taxi" src="assets/img/big-taxi.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
+            $('.buses').append(`<img class="bus" src="assets/img/bus.png" style="top: ${currentPosition}; left: ${width}px;"/>`);
             setTimeout(function () {
-                $('.big-taxis').find('.big-taxi:first').detach();
+                $('.buses').find('.bus:first').detach();
             }, timeout * 2)
         }
     }
@@ -170,7 +168,7 @@ setInterval(function () {
             }
         })
 
-        $('.big-taxi').each(function () {
+        $('.bus').each(function () {
             if (
                 (car.offset().left - $(this).offset().left) < 50 &&
                 (car.offset().left - $(this).offset().left) > - 120 &&
